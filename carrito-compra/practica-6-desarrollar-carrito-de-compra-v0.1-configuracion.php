@@ -1,6 +1,6 @@
 <?php
 //session_start();
-
+session_destroy();
 // Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['username'])) {
     // El usuario no ha iniciado sesión, redirigir a la página de inicio de sesión

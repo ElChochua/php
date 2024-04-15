@@ -1,13 +1,6 @@
 <?php
 session_start();
-    include_once 'db-manager.php';
-// Verificar si el usuario ya está autenticado
-if (isset($_SESSION['username'])) {
-    // Si el usuario ya está autenticado, redirigirlo a la página de inicio
-
-    header("Location: /carrito-compra/practica-6-desarrollar-carrito-de-compra-v0.1-inicio.php");    
-}
-
+    include 'db-manager.php';
 // Verificar si se ha enviado el formulario de inicio de sesión
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];

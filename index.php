@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "./carrito-compra/db-manager.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ include "./carrito-compra/db-manager.php";
     <title>Frutería Amlitos - Iniciar sesión</title>
     <link rel="shortcut icon" href="/assets/carrito-compra/logo-fruteria.png" type="images/x-png">
     <script src="https://kit.fontawesome.com/df00b7509d.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="/style/shop-style/login-registro/style-login.css">
+    <link rel="stylesheet" href="/style/shop-style/login-registro/style-login.css">
     <script src="/scripts/carrito-compras/login-register/script_login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.all.min.js"></script>
 </head>
@@ -26,16 +26,16 @@ include "./carrito-compra/db-manager.php";
         <nav role="navigation" class="nav-menu w-nav-menu">
             <ul class="menu-options">
                 <a
-                    href="/carrito-compra/practica-6-desarrollar-carrito-de-compra-v0.1-inicio.php">Inicio</a>
+                    href="/carrito-compra/fruteria-inicio/practica-6-desarrollar-carrito-de-compra-v0.1-inicio.php">Inicio</a>
                 <a
-                    href="/carrito-compra/practica-6-desarrollar-carrito-de-compra-v0.1-contacto.php">Contacto</a>
+                    href="/carrito-compra/fruteria-contacto/practica-6-desarrollar-carrito-de-compra-v0.1-contacto.php">Contacto</a>
             </ul>
             <div class="icon-group">
                 <a id="bypass-over"
                     href="/carrito-compra/practica-6-desarrollar-carrito-de-compra-v0.1.php">X
                     <i class="fa fa-user-o" aria-hidden="true"></i>
                 </a>
-                <a id="bypass-over" >
+                <a id="bypass-over" href="#">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
             </div>
@@ -58,7 +58,7 @@ include "./carrito-compra/db-manager.php";
                 <div class="form-container">
                     <form id="formulario" action="/carrito-compra/session.php" method="post">
                         <div class="options-login">
-                            <a class="bypass" href="index.php"><u>In</u>iciar sesión</a>
+                            <a class="bypass" href="#"><u>In</u>iciar sesión</a>
                             <a
                                 href="/carrito-compra/practica-6-desarrollar-carrito-de-compra-v0.1-registro.php">Registrarme</a>
                         </div>
@@ -66,8 +66,7 @@ include "./carrito-compra/db-manager.php";
                             required>
                         <input type="password" id="password" name="password" placeholder="Contraseña" required>
                         <a href="#" onclick="resetInputs()" class="reset-inputs">Reiniciar campos</a>
-                       <!-- <button id="login-button" type="button">Iniciar sesión</button>-->
-                        <input type="submit" value="Iniciar Sesión" id="Iniciar_Sesion">
+                        <button id="login-buttonwes" type="submit">Iniciar sesión</button>
                         <div class="another-options">
                             <a class="option-forgot-password" href="#">¿Olvidaste la contraseña?</a>
                             <hr class="hr-format">

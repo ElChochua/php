@@ -1,6 +1,6 @@
 <?php
-//include 'db-manager.php';
-//session_start();
+include 'db-manager.php';
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +31,7 @@
             </ul>
             <div class="icon-group">
                 <a id="bypass-over"
-                    href="/carrito-compra/ practica-6-desarrollar-carrito-de-compra-v0.1.php">X
+                    href="/carrito-compra/practica-6-desarrollar-carrito-de-compra-v0.1.php">X
                     <i class="fa fa-user-o" aria-hidden="true"></i>
                 </a>
                 <a id="bypass-over">
@@ -48,7 +48,7 @@
                 <div class="form-container">
                     <form id="formulario" method="post" action="login-register.php">
                         <div class="options-login">
-                            <a href="/index.php"><u>In</u>iciar sesión</a>
+                            <a href="../index.php"><u>In</u>iciar sesión</a>
                             <a class="bypass" onclick="mostrarRegistro()">Registrarme</a>
                         </div>
                         <input class="margin-aaa" type="username"  id="username" name="username" placeholder="Usuario"

@@ -71,7 +71,24 @@ $conn = new mysqli($host,$dbUser,$dbPass,$dbName);
 if($conn->connect_error){
     alert("Conexion fallida ".$conn->connect_error);
 }
-
+function imprimirProductos($conn){
+    $query = "SELECT * FROM productos";
+    $resultado = $conn->query($query);
+    if($resultado->num_rows>0){
+        $productos = array();
+        while($fila=$resultado->fetch_assoc()){
+            $producto = array(
+                "nombre" => $fila['Nombre'],
+                "precio" => $fila['Precio'],
+                "stock" => $fila['Stock'],
+                "imagen" => $fila['Imagen']
+            );
+            $productos[] = $producto;
+        }
+        return $productos;
+    }
+    $conn->close();
+}
 /*
 $query = "SELECT * FROM usuarios";
 //Multiquery se utiliza para obtener datos de la bd y mostrarlos
