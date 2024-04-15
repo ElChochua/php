@@ -1,0 +1,323 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    color: #08081b;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 1%;
+}
+
+.h1-title {
+    font-size: 22px;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.logo {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 25%;
+    height: auto;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: light;
+    font-size: 18px;
+    margin-left: 50px;
+    position: relative;
+}
+
+.menu-options {
+    margin-right: 70px;
+}
+
+.icon-group {
+    margin-left: 10px;
+}
+
+.nav-menu a:hover {
+    border-bottom: 2px solid #08081b;
+}
+
+.divisor-line {
+    margin-top: -10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombreado con desplazamiento vertical de 2px, desenfoque de 4px y opacidad del 10% */
+}
+
+/* Estilos para la imagen */
+.split-panel {
+    display: flex;
+    height: 400px; /* ajusta la altura según tus necesidades */
+    padding: 50px;
+}
+
+.left-panel,
+.right-panel,
+.third-panel,
+.fourth-panel,
+.fifth-panel {
+    flex: 1;
+    margin: -15px;
+}
+
+.left-panel {
+    background-image: url('/assets/carrito-compra/fruits.jpg');
+    clip-path: polygon(0 0, 60% 0, 60% 100%, 0% 100%);
+    background-size: cover;
+    background-position: 0%;
+    margin-top: 10px;
+    height: 410px;
+}
+
+.right-panel {
+    background-image: url('/assets/carrito-compra/fruits.jpg');
+    clip-path: polygon(0 0, 60% 0, 60% 100%, 0% 100%);
+    background-size: cover;
+    background-position: 20%;
+    height: 510px;
+}
+
+.third-panel {
+    background-image: url('/assets/carrito-compra/fruits.jpg');
+    clip-path: polygon(0 0, 60% 0, 60% 100%, 0% 100%);
+    background-size: cover; 
+    background-position: 40%;
+    margin-top: 10px;
+}
+
+.fourth-panel {
+    background-image: url('/assets/carrito-compra/fruits.jpg');
+    clip-path: polygon(0 0, 60% 0, 60% 100%, 0% 100%);
+    background-size: cover;
+    background-position: 60%;
+    height: 530px;
+    margin-top: -40px;
+}
+
+.fifth-panel {
+    background-image: url('/assets/carrito-compra/fruits.jpg');
+    clip-path: polygon(0 0, 60% 0, 60% 100%, 0% 100%);
+    background-size: cover;
+    background-position: 80%;
+}
+
+
+/* Estilos para el formulario */
+.login-card {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 20px auto;
+    position: relative; /* Añadido para permitir el posicionamiento absoluto de las imágenes */
+}
+
+.form-container {
+    width: 479px;
+    margin: 1px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    color: #F1F1F1;
+    height: 510px;
+    border: none;
+    border-bottom: 1px solid #010101;
+}
+
+.container {
+    display: flex;
+}
+
+.left-side {
+    flex: 1;
+    padding: 20px;
+}
+
+.right-side {
+    flex: 1;
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+input[type="submit"]{
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    height: 81px;
+    width: 350px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold; 
+    align-self: center;
+}
+label {
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.margin-aaa {
+    margin-bottom: 20px;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 1px solid #08081b; 
+}
+
+input::placeholder {
+    color: #8C8C8C;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+button {
+    background-color: #010101;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    height: 81px;
+    width: 350px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold; 
+    align-self: center;
+}
+
+.img-bottom {
+    width: 30px;
+    height: auto;
+    position: relative;
+    transform: translateX(471%);
+    margin-right: 2%;
+}
+
+/* Estilos objetos formulario */
+.options-login {
+    padding: 30px;
+    font-weight: normal;
+    font-size: 24px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    font-weight: normal;
+    font-size: 24px;
+}
+
+.reset-inputs {
+    margin-top: 5px; 
+    display: block;
+    font-size: 14px; 
+    text-align: left;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.option-forgot-password {
+    display: block;
+    font-size: 14px; 
+    text-align: center;
+    font-weight: 500;
+}
+
+.hr-format {
+    color: #010101;
+    width: 40%;
+}
+
+.bypass {
+    color: #CACACA;
+}
+
+/* Extra diseños */
+#remove-cookie {
+    background-color: #f03535;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    width: auto;
+    height: auto;
+    font-size: 12px;
+    align-self: center;
+    text-align: center;
+    transform: translateX(50%);
+}
+
+#remove-cookie i {
+    margin-right: 5px;
+}
+
+#user-list {
+    background-color: #e78c36;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    width: auto;
+    height: auto;
+    font-size: 12px;
+    align-self: center;
+    text-align: center;
+    transform: translateX(50%);
+}
+
+#user-list i {
+    margin-right: 5px;
+}
+
+
+#myAnim {
+    animation: myAnim 3.6s ease;
+}
+
+/* Animaciones */
+@keyframes myAnim {
+	0% {
+		opacity: 0;
+		transform: translateX(50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}

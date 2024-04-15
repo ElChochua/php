@@ -1,0 +1,172 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    color: #08081b;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 1%;
+}
+
+.h1-title {
+    font-size: 22px;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.logo {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 25%;
+    height: auto;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: light;
+    font-size: 18px;
+    margin-left: 50px;
+    position: relative;
+}
+
+.menu-options {
+    margin-right: 70px;
+}
+
+.icon-group {
+    margin-left: 10px;
+}
+
+.nav-menu a:hover {
+    border-bottom: 2px solid #08081b;
+}
+
+.divisor-line {
+    margin-top: -10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombreado con desplazamiento vertical de 2px, desenfoque de 4px y opacidad del 10% */
+}
+label {
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #010101;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+footer{
+    margin: 5px;
+    position: relative;
+    justify-content: start;
+    border-top: 1px solid black;
+    height: auto;
+}
+.footer-logo{
+    float: left;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+}
+.footer-logo img{
+    min-height: 40px;
+    max-height: 80px;
+    min-width: 40px;
+    max-width: 80px;
+}
+.footer-logo p{
+    font-size: 15px;
+    align-items: center;
+    margin-left: 5%;
+}
+.copy-right{
+    float: center;
+    font-size: 15px;
+}
+.contactanos{
+    float: right;
+    justify-items: right;
+
+}
+.contactanos img{
+    object-fit:cover;
+    min-height: 20px;
+    max-height: 40px;
+    min-width: 20px;
+    max-width: 40px;
+}
+.imagenes-contacto{
+    justify-content:flex-start;
+    flex-direction: row;
+}
+/*estilos Fruteria */
+.contenedor-imagen-fruteria{
+    margin-top: 1px;
+
+}
+.contenedor-imagen-fruteria  img{
+    height: 200px;
+    width: 100%;
+    object-fit:cover;
+}
+.header-productos{
+    margin-left: 30px;
+    height: 20px;
+    width: 40rem;
+}
+.container-productos{
+    margin-top: 12%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 5px
+}
+
+.producto{
+    flex: 3;
+    min-height: 100px;
+    max-height: 300px;
+    min-width: 150px;
+    max-width: 300px;
+    margin: 1px;
+    text-align: center;
+    border: 3px solid black; 
+    border-radius: 8px; 
+    overflow: hidden;
+    border-radius: 20px;
+}
+.producto  img{
+    object-fit: cover;
+    width: 70%;
+    height: auto;
+}
+.producto button{
+    height: auto;
+    width: auto;
+    background-color:greenyellow ;
+}
+

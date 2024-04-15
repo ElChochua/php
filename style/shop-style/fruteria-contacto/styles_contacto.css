@@ -1,0 +1,276 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    color: #08081b;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 1%;
+}
+
+.h1-title {
+    font-size: 22px;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.logo {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 25%;
+    height: auto;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: light;
+    font-size: 18px;
+    margin-left: 50px;
+    position: relative;
+}
+
+.menu-options {
+    margin-right: 70px;
+}
+
+.icon-group {
+    margin-left: 10px;
+}
+
+.nav-menu a:hover {
+    border-bottom: 2px solid #08081b;
+}
+
+.divisor-line {
+    margin-top: -10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.split-panel {
+    display: flex;
+    height: 400px;
+    padding: 50px;
+}
+
+.imagen-acoplada {
+    width: 100%;
+    height: 33.33vh;
+    object-fit: cover;
+}
+
+.contenedor-imagen {
+    width: 100%;
+    height: 33.33vh;
+}
+
+.imagen-acopladaubi {
+    width: 400px;
+    height: 400px;
+    position: relative;
+}
+
+.imagen-medioubi {
+    position: absolute;
+    top: 50%;
+    transform: translateY(25%);
+    left: 50px;
+    width: 490px;
+    height: 400px;
+}
+
+/* Estilos para el formulario */
+.login-card {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.form-container {
+    width: 410px;
+    margin: 1px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #F1F1F1;
+    height: 390px;
+    border: none;
+    border-bottom: 1px solid #010101;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.container {
+    display: flex;
+}
+
+.left-side {
+    flex: 1;
+    padding: 20px;
+}
+
+.right-side {
+    flex: 1;
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.margin-aaa {
+    margin-bottom: 20px;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 1px solid #08081b;
+}
+
+input::placeholder {
+    color: #8C8C8C;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+button {
+    background-color: #010101;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    height: 81px;
+    width: 350px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    align-self: center;
+}
+
+/* Estilos objetos formulario */
+.options-login {
+    padding: 10px;
+    font-weight: normal;
+    font-size: 16px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    font-weight: normal;
+    font-size: 24px;
+}
+
+.reset-inputs {
+    margin-top: 5px;
+    display: block;
+    font-size: 14px;
+    text-align: left;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+footer {
+    margin: 5px;
+    position: relative;
+    justify-content: start;
+    border-top: 1px solid black;
+    height: auto;
+}
+
+.footer-logo {
+    float: left;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+}
+
+.footer-logo img {
+    min-height: 40px;
+    max-height: 80px;
+    min-width: 40px;
+    max-width: 80px;
+}
+
+.footer-logo p {
+    font-size: 15px;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.copy-right {
+    float: center;
+    font-size: 15px;
+}
+
+.contactanos {
+    float: right;
+    justify-items: right;
+
+}
+
+.contactanos img {
+    object-fit: cover;
+    width: 50px
+}
+
+.footer-social-link ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-social-link li {
+    display: inline-block;
+}
+
+.footer-social-link a i {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    background: #000;
+    margin-right: 5px;
+    color: #fff;
+}
+
+.footer-social-link a i.fa-facebook-f {
+    background-color: #3B5998;
+}
+
+.footer-social-link a i.fa-linkedin-in {
+    background-color: #0976B4;
+}
