@@ -8,29 +8,29 @@
     <link rel="shortcut icon" href="/assets/carrito-compra/logo-fruteria.png" type="images/x-png">
     <script src="https://kit.fontawesome.com/df00b7509d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/style/shop-style/gestion-styles/styles_abc_nuevo.css">
-    <script src="/scripts/carrito-compras/login-register/script_register.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.all.min.js"></script>
 </head>
 
 <body>
+    
     <header class="container">
         <div class="logo">
-            <img src="./assets/carrito-compra/logo-fruteria.png" alt="logo-frutería" class="logo">
+            <img src="/assets/carrito-compra/logo-fruteria.png" alt="logo-frutería" class="logo">
             <h1 class="h1-title">FRUTERIA <br> AMLITOS</h1>
         </div>
         <nav role="navigation" class="nav-menu w-nav-menu">
             <ul class="menu-options">
-                <a href="/practicas/practica-1/situacion-laboral.html">Inicio</a>
-                <a href="/practicas/practica-1/actividades-extraescolares.html">Contacto</a>
+                <a href="/carrito-compra/Fruteria-Inicio.php">Inicio</a>
+                <a href="/carrito-compra/practica-6-desarrollar-carrito-de-compra-v0.1-contacto.php">Contacto</a>
                 <div class="dropdown">
                     <a href="#" class="dropbtn">Gestión de Productos</a>
                     <div class="dropdown-content">
-                      <a href="./abc_nuevo.html">Nuevo Producto</a>
-                      <a href="./abc_altabaja.html">Alta/Baja Producto</a>
-                      <a href="./abc_modificar.html">Modificar Producto</a>
+                      <a href="abc_nuevo.php">Nuevo Producto</a>
+                      <a href="abc_altabaja.php">Alta/Baja Producto</a>
+                      <a href="abc_modificar.php">Modificar Producto</a>
                     </div>
                   </div>
-                <a href="./gestion.html">Perfil</a>
+                <a href="gestion.php">Perfil</a>
 
 
             </ul>
@@ -51,25 +51,23 @@
         <div class="left-side">
             <div class="login-card">
                 <div class="form-container">
-                    <form id="formulario">
+                    <form id="formulario" action="agregar-producto.php" method="post" enctype="multipart/form-data">
                         <div class="options-login">
                             <a>Nuevo Producto</a>
                         </div>
-                        <input class="margin-aaa" type="username" id="username" name="username" placeholder="Nombre"
+                        <input class="margin-aaa" type="text" id="nombre" name="nombre" placeholder="nombre"
                             required>
-                        <input class="margin-aaa" type="text" placeholder="Descripción" required style="height: 90px;"
+                        <input class="margin-aaa" type="number" id="number" name="precio" placeholder="Precio"
                             required>
-                        <input class="margin-aaa" type="number" id="number" name="number" placeholder="Precio"
-                            required>
-                        <input class="margin-aaa" type="number" id="number" name="number" placeholder="Stock"
+                        <input class="margin-aaa" type="number" id="number" name="stock" placeholder="Stock"
                             required>
                             <a required style="font-size: 15px;">Foto del Producto </a>
-                        <input class="margin-aaa" type="file" id="photo" name="photo" accept="image/*" placeholder="Adjuntar fotografía"
+                        <input class="margin-aaa" type="file" id="foto" name="imagen" accept="image/*" required placeholder="Adjuntar fotografía"
                             required>
 
 
                         <a id="reset-inputs" href="#" onclick="resetInputs()" class="reset-inputs">Reiniciar campos</a>
-                        <button id="register-button" type="button">Agregar</button>
+                        <button id="register-button" type="submit">Agregar</button>
                         <div class="another-options">
                     </form>
                 </div>
@@ -80,7 +78,7 @@
 </div>
 <footer>
     <div class="footer-logo">
-        <img src="./assets/carrito-compra/logo-fruteria.png" alt="logo-frutería" class="logo-footer">
+        <img src="/assets/carrito-compra/logo-fruteria.png" alt="logo-frutería" class="logo-footer">
     <p>Av. Constitución, Palacio de Gobierno <br>
         Frente a las Guajolotas “La doble P” <br>
     <strong>Correo: </strong> futeria@amlitos.gob <br>
@@ -89,9 +87,9 @@
     <div class="contactanos">
         <p><strong>Contacte con nosotros</strong></p>
         <div class="imagenes-contacto">
-            <img src="./assets/carrito-compra/linkedin.png" alt="linkedin">
-            <img src="./assets/carrito-compra/twitter.png" alt="X">
-            <img src="./assets/carrito-compra/facebook.png" alt="Facebook">
+            <img src="/assets/carrito-compra/linkedin.png" alt="linkedin">
+            <img src="/assets/carrito-compra/twitter.png" alt="X">
+            <img src="/assets/carrito-compra/facebook.png" alt="Facebook">
         </div>
     </div>
     <div class="copy-right">

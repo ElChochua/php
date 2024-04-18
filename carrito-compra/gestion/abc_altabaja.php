@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+    include "../manager/db-manager.php";
+    if(!isset($_SESSION['username'])){
+        header("Location: /index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,22 +22,22 @@
 <body>
     <header class="container">
         <div class="logo">
-            <img src="./assets/carrito-compra/logo-fruteria.png" alt="logo-frutería" class="logo">
+            <img src="/assets/carrito-compra/logo-fruteria.png" alt="logo-frutería" class="logo">
             <h1 class="h1-title">FRUTERIA <br> AMLITOS</h1>
         </div>
         <nav role="navigation" class="nav-menu w-nav-menu">
             <ul class="menu-options">
-                <a href="/practicas/practica-1/situacion-laboral.html">Inicio</a>
-                <a href="/practicas/practica-1/actividades-extraescolares.html">Contacto</a>
+            <a href="/carrito-compra/Fruteria-Inicio.php">Inicio</a>
+                <a href="/carrito-compra/practica-6-desarrollar-carrito-de-compra-v0.1-contacto.php">Contacto</a>
                 <div class="dropdown">
                     <a href="#" class="dropbtn">Gestión de Productos</a>
                     <div class="dropdown-content">
-                      <a href="./abc_nuevo.html">Nuevo Producto</a>
-                      <a href="./abc_altabaja.html">Alta/Baja Producto</a>
-                      <a href="./abc_modificar.html">Modificar Producto</a>
+                      <a href="abc_nuevo.php">Nuevo Producto</a>
+                      <a href="abc_altabaja.php">Alta/Baja Producto</a>
+                      <a href="abc_modificar.php">Modificar Producto</a>
                     </div>
                   </div>
-                <a href="./gestion.html">Perfil</a>
+                <a href="gestion.php">Perfil</a>
 
 
             </ul>
@@ -49,7 +56,7 @@
     <div class="search-container button img">
         <input type="text" placeholder="Buscar...">
         <button type="submit">
-          <img src="./assets/carrito-compra/lupa.png" alt="Buscar">
+          <img src="..carrito-compra/assets/carrito-compra/lupa.png" alt="Buscar">
         </button>
       </div>
 
@@ -61,28 +68,31 @@
                         <div class="options-login">
                             <a>Alta o Baja de producto</a>
                         </div>
-                        <hr class="divisor-line">
-                        <ul class="fruits-list">
-                            <li class="fruit-item">
-                                <div class="fruit-info">
-                                    <img src="fruta1.jpg" alt="Fruta 1">
-                                    <div class="details">
-                                        <h3>Manzana</h3>
-                                        <p class="price">Precio: $1.99</p>
-                                    </div>
-                                </div>
-                                <button class="modify-button">Desactivar</button>
-                            </li>
-                            <li class="fruit-item">
-                                <div class="fruit-info">
-                                    <img src="fruta2.jpg" alt="Fruta 2">
-                                    <div class="details">
-                                        <h3>Naranja</h3>
-                                        <p class="price">Precio: $2.49</p>
-                                    </div>
-                                </div>
-                                <button class="modify-button">Desactivar</button>
-                            </li>
+                            <?php 
+                                $productos = imprimirProductos($conn);
+                                foreach($productos as $producto){
+                                    $textoBoton = ($producto["estado"] == 1) ? "Desactivar" : "Activar";
+                                    $valorBoton = ($producto["estado"] == 1) ? 0 : 1;
+                                    echo '
+                                    <hr class="divisor-line">
+                                    <ul class="fruits-list">
+                                        <li class="fruit-item">
+                                            <div class="fruit-info">
+                                                <img src="'.$producto["imagen"].'" alt="Product Image">
+                                                <div class="details">
+                                                    <h3>'.$producto["nombre"].'</h3>
+                                                    <p class="price">Precio: $'.$producto["precio"].'</p>
+                                                </div>
+                                            </div>
+                                            <form>
+                                            <input type="hidden" name="producto" value="'.$producto["nombre"].'">
+                                            <input type="hidden" name="estado" value="'.$valorBoton.'">
+                                            <button class="modify-button" type="submit">'.$textoBoton.'</button>
+                                            </form>
+                                        </li>
+                                    ';
+                                }
+                            ?>
                             <!-- Agrega más elementos <li> para otras frutas si es necesario -->
                         </ul>
                         <hr class="divisor-line">
@@ -101,7 +111,7 @@
 </div>
 <footer>
     <div class="footer-logo">
-        <img src="./assets/carrito-compra/logo-fruteria.png" alt="logo-frutería" class="logo-footer">
+        <img src="/assets/carrito-compra/logo-fruteria.png" alt="logo-frutería" class="logo-footer">
     <p>Av. Constitución, Palacio de Gobierno <br>
         Frente a las Guajolotas “La doble P” <br>
     <strong>Correo: </strong> futeria@amlitos.gob <br>
@@ -110,9 +120,9 @@
     <div class="contactanos">
         <p><strong>Contacte con nosotros</strong></p>
         <div class="imagenes-contacto">
-            <img src="./assets/carrito-compra/linkedin.png" alt="linkedin">
-            <img src="./assets/carrito-compra/twitter.png" alt="X">
-            <img src="./assets/carrito-compra/facebook.png" alt="Facebook">
+            <img src="/assets/carrito-compra/linkedin.png" alt="linkedin">
+            <img src="/assets/carrito-compra/twitter.png" alt="X">
+            <img src="/assets/carrito-compra/facebook.png" alt="Facebook">
         </div>
     </div>
     <div class="copy-right">

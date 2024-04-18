@@ -1,6 +1,7 @@
 <?php
+#session_start();
 session_start();
-include_once './db-manager.php';
+include './db-manager.php';
 // Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['username'])) {
    echo($_SESSION['username']);

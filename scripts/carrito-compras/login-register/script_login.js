@@ -1,3 +1,4 @@
+/*
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('login-button').addEventListener('click', function () {
         var username = document.getElementById('username').value;
@@ -13,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Después de verificar las credenciales y antes de redirigir al usuario a la página principal
             document.cookie = "logged_in=true; path=/";
             // Credenciales correctas, redirigir al usuario a la página de inicio
-            window.location.href = "/carrito-compra/fruteria-inicio/practica-6-desarrollar-carrito-de-compra-v0.1-inicio.php";
+           // window.location.href = "/carrito-compra/fruteria-inicio/practica-6-desarrollar-carrito-de-compra-v0.1-inicio.php";
             // También puedes mostrar el nombre del usuario en algún lugar de la página de inicio
             // Por ejemplo:
             document.getElementById('bypass-over').textContent = username;
@@ -39,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         resetInputs();
     });
 });
-
+*/
 
 // Función para reiniciar los campos del formulario
 function resetInputs() {

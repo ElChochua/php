@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +55,7 @@ session_start();
         <div class="right-side">
             <div class="login-card">
                 <div class="form-container">
-                    <form id="formulario" action="/carrito-compra/session.php" method="post">
+                    <form id="formulario" action="./carrito-compra/login.php" method="post">
                         <div class="options-login">
                             <a class="bypass" href="#"><u>In</u>iciar sesión</a>
                             <a
@@ -66,7 +65,7 @@ session_start();
                             required>
                         <input type="password" id="password" name="password" placeholder="Contraseña" required>
                         <a href="#" onclick="resetInputs()" class="reset-inputs">Reiniciar campos</a>
-                        <button id="login-buttonwes" type="submit">Iniciar sesión</button>
+                        <button id="login-button32" type="submit">Iniciar sesión</button>
                         <div class="another-options">
                             <a class="option-forgot-password" href="#">¿Olvidaste la contraseña?</a>
                             <hr class="hr-format">

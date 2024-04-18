@@ -1,6 +1,6 @@
 <?php
-//session_start();
-session_destroy();
+session_start();
+
 // Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['username'])) {
     // El usuario no ha iniciado sesión, redirigir a la página de inicio de sesión
@@ -33,7 +33,7 @@ if (!isset($_SESSION['username'])) {
         <nav role="navigation" class="nav-menu w-nav-menu">
             <ul class="menu-options">
                 <a
-                    href="/carrito-compra/practica-6-desarrollar-carrito-de-compra-v0.1-inicio.php">Inicio</a>
+                    href="/carrito-compra/Fruteria-Inicio.php">Inicio</a>
                 <a
                     href="/carrito-compra/practica-6-desarrollar-carrito-de-compra-v0.1-contacto.php">Contacto</a>
             </ul>

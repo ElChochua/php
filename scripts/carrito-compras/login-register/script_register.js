@@ -161,20 +161,3 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById('user-list').addEventListener('click', mostrarListaUsuarios);
 });
 //Ola amaral
-function doSomething(){
-  let dato_Miado = $('#texto').val();
-  $.ajax({
-    url: 'db-manager.php',
-    type: 'POST',
-    data:{
-      dato: dato_Miado
-    },
-    success: function(response){
-      console.log(response);
-    },
-    error: function(xhr,status, error){
-      console.error("Error: " + status + " " + error);
-    }
-  });
-
-}

@@ -89,6 +89,7 @@ function imprimirProductos($conn){
     }
     $conn->close();
 }
+$productos = imprimirProductos($conn);
 /*
 $query = "SELECT * FROM usuarios";
 //Multiquery se utiliza para obtener datos de la bd y mostrarlos

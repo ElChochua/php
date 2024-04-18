@@ -1,5 +1,5 @@
 <?php
-include 'db-manager.php';
+include '/login-registro/db-manager.php';
 session_start();
 ?>
 

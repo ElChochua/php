@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION["username"])){
+        header("Location: /index.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,22 +21,22 @@
 <body>
     <header class="container">
         <div class="logo">
-            <img src="./assets/carrito-compra/logo-fruteria.png" alt="logo-frutería" class="logo">
+            <img src="/assets/carrito-compra/logo-fruteria.png" alt="logo-frutería" class="logo">
             <h1 class="h1-title">FRUTERIA <br> AMLITOS</h1>
         </div>
         <nav role="navigation" class="nav-menu w-nav-menu">
             <ul class="menu-options">
-                <a href="/practicas/practica-1/situacion-laboral.html">Inicio</a>
-                <a href="/practicas/practica-1/actividades-extraescolares.html">Contacto</a>
+                <a href="./Fruteria-inicio.php">Inicio</a>
+                <a href="/practicas/practica-1/actividades-extraescolares.php">Contacto</a>
                 <div class="dropdown">
                     <a href="#" class="dropbtn">Gestión de Productos</a>
                     <div class="dropdown-content">
-                      <a href="./abc_nuevo.html">Nuevo Producto</a>
-                      <a href="./abc_altabaja.html">Alta/Baja Producto</a>
-                      <a href="./abc_modificar.html">Modificar Producto</a>
+                      <a href="abc_nuevo.php">Nuevo Producto</a>
+                      <a href="abc_altabaja.php">Alta/Baja Producto</a>
+                      <a href="abc_modificar.php">Modificar Producto</a>
                     </div>
                   </div>
-                <a href="./gestion.html">Perfil</a>
+                <a href="gestion.php">Perfil</a>
 
 
             </ul>
@@ -46,33 +52,33 @@
     </header>
     <hr class="divisor-line">
     <div class="contenedor-imagen">
-        <img src="./assets/carrito-compra/user.png" alt="Descripción de la imagen" class="imagen-acoplada">
+        <img src="/assets/carrito-compra/user.png" alt="Descripción de la imagen" class="imagen-acoplada">
     </div>
 
     <div class="container">
         <div class="left-side">
             <div class="login-card">
                 <div class="form-container">
-                    <form id="formulario">
+                    <form id="formulario" method="post" action="/carrito-compra/gestion/editar-perfil.php">
                         <div class="options-login">
                             <a>Editar Perfil</a>
                         </div>
-                        <input class="margin-aaa" type="username" id="username" name="username" placeholder="Nombre"
+                        <input class="margin-aaa" type="username" id="username" name="nombre" placeholder="Nombre"
                             required>
-                        <input class="margin-aaa" type="number" id="number" name="number" placeholder="Edad"
+                        <input class="margin-aaa" type="number" id="number" name="edad" placeholder="Edad"
                             required>
-                        <input class="margin-aaa" type="email" placeholder="Correo Electronico"
+                        <input class="margin-aaa" type="email" name="email" placeholder="Correo Electronico"
                             required>
                             <input class="margin-aaa" type="username" id="username" name="username" placeholder="Nombre de Usuario"
                             required>
                         <input class="margin-aaa" type="password" id="password" name="password" placeholder="Contraseña Actual"
                             required>
-                        <input class="margin-aaa" type="password" id="password" name="password" placeholder="Nueva Contraseña"
+                        <input class="margin-aaa" type="password" id="password" name="newPassword" placeholder="Nueva Contraseña"
                             required>
-                            <input class="margin-aaa" type="password" id="password" name="password" placeholder="Confirmar Contraseña"
+                            <input class="margin-aaa" type="password" id="password" name="confirmPassword" placeholder="Confirmar Contraseña"
                             required>
                         <a id="reset-inputs" href="#" onclick="resetInputs()" class="reset-inputs">Reiniciar campos</a>
-                        <button id="register-button" type="button">Guardar</button>
+                        <button id="register-buttons" type="submit">Guardar</button>
                         <div class="another-options">
                     </form>
                 </div>
@@ -83,7 +89,7 @@
 </div>
 <footer>
     <div class="footer-logo">
-        <img src="./assets/carrito-compra/logo-fruteria.png" alt="logo-frutería" class="logo-footer">
+        <img src="/assets/carrito-compra/logo-fruteria.png" alt="logo-frutería" class="logo-footer">
     <p>Av. Constitución, Palacio de Gobierno <br>
         Frente a las Guajolotas “La doble P” <br>
     <strong>Correo: </strong> futeria@amlitos.gob <br>
@@ -92,9 +98,9 @@
     <div class="contactanos">
         <p><strong>Contacte con nosotros</strong></p>
         <div class="imagenes-contacto">
-            <img src="./assets/carrito-compra/linkedin.png" alt="linkedin">
-            <img src="./assets/carrito-compra/twitter.png" alt="X">
-            <img src="./assets/carrito-compra/facebook.png" alt="Facebook">
+            <img src="/assets/carrito-compra/linkedin.png" alt="linkedin">
+            <img src="/assets/carrito-compra/twitter.png" alt="X">
+            <img src="/assets/carrito-compra/facebook.png" alt="Facebook">
         </div>
     </div>
     <div class="copy-right">

@@ -1,4 +1,5 @@
 // Función para mostrar el carrito de compras
+/*
 function mostrarCarrito() {
     // Aquí simularemos que obtenemos los productos del carrito desde algún almacenamiento (como localStorage)
     const productos = obtenerProductosDelCarrito();
@@ -55,7 +56,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // Verificar si el usuario está logueado basado en la cookie
     if (document.cookie.indexOf("logged_in=true") === -1) {
         // Redirigir a la página de inicio de sesión si no está logueado
-        window.location.href = "/carrito-compra/login-registro/practica-6-desarrollar-carrito-de-compra-v0.1.php";
+        //window.location.href = "/carrito-compra/login-registro/practica-6-desarrollar-carrito-de-compra-v0.1.php";
     }
 });
 
+*/

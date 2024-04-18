@@ -1,6 +1,9 @@
 <?php
 session_start();
-include("db-manager.php");
+include("./manager/db-manager.php");
+if (!isset($_SESSION['username'])) {
+    header("Location: ../index.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,8 +19,8 @@ include("db-manager.php");
     <script src="https://kit.fontawesome.com/df00b7509d.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.all.min.js"></script>
     <!-- ESTILO CSS -->
-    <link rel="stylesheet" href="style-inicio.css">
-    <script src="/scripts/carrito-compras/inicio/script-carrito.js"></script>
+    <link rel="stylesheet" href="/style/shop-style/fruteria-inicio/style-inicio.css">
+   <!-- <script src="/scripts/carrito-compras/inicio/script-carrito.js"></script>-->
     <title>Frutería Amlitos — Frutas frescas diariamente desde 1973</title>
 </head>
 
@@ -31,19 +34,42 @@ include("db-manager.php");
         <nav role="navigation" class="nav-menu w-nav-menu">
             <ul class="menu-options">
                 <a
-                    href="/carrito-compra/practica-6-desarrollar-carrito-de-compra-v0.1-inicio.php">Inicio</a>
+                    href="#">Inicio</a>
                 <a
                     href="/carrito-compra/practica-6-desarrollar-carrito-de-compra-v0.1-contacto.php">Contacto</a>
-            </ul>
+                    <?php 
+              if(isset($_SESSION['username'])){
+                $usuario = $_SESSION['username'];
+                echo'<a href="/carrito-compra/gestion/gestion.php">'.$usuario.'</a>';
+                if($_SESSION['Type'] == 'admin' or $_SESSION['username'] == 'admin'){
+                    echo'<div class="dropdown">
+                    <a href="#" class="dropbtn">Gestión de Productos</a>
+                    <div class="dropdown-content">
+                      <a href="./gestion/abc_nuevo.php">Nuevo Producto</a>
+                      <a href="./gestion/abc_altabaja.php">Alta/Baja Producto</a>
+                      <a href="./gestion/abc_modificar.php">Modificar Producto</a>
+                    </div>
+                  </div>';
+                }
+              }
+                ?>
+                </ul>
             <div class="icon-group">
                 <a id="bypass-over" href="/carrito-compra/logout.php">
                 </a>
                 <a id="confg-icon" href="/carrito-compra/practica-6-desarrollar-carrito-de-compra-v0.1-configuracion.php">
                     <i class="fa-solid fa-gear"></i>
+ 
                 </a>
-                <a id="cart-icon" href="#">
+                <form method="post" action="/carrito-compra/gestion/cerrar-sesion.php">
+                <button type="submit" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </form>
+                <a id="cart-icon" href="/carrito-compra/carrito.php">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </a>
+                
             </div>
         </nav>
     </header>
@@ -75,33 +101,29 @@ include("db-manager.php");
                         <i class="fas fa-shopping-cart"></i>
                     </button>
                 </div>
-            </div>
-            <div id="extra-margin" class="card">
-                <img class="card-image" src="/assets/carrito-compra/frutas/manzana.webp" alt="Product Image">
-                <div class="card-content">
-                    <div class="product-name">Manzana</div>
-                    <div class="product-price-tag">Precio</div>
-                    <div class="product-price">$99.99</div>
-                    <button class="add-to-cart">Agregar al carrito
-                        <i class="fas fa-shopping-cart"></i>
-                    </button>
-                </div>
             </div>-->
+
             <?php
                 $productos = imprimirProductos($conn);
-                $array_Size = sizeof($productos);
-                foreach($productos as $producto){
-                    echo '<div id="extra-margin" class="card">
-        <img class="card-image" src="'.$producto['imagen'].'" alt="Product Image">
-        <div class="card-content">
-            <div class="product-name">'.$producto['nombre'].'</div>
-            <div class="product-price-tag">Precio</div>
-            <div class="product-price">$'.$producto['precio'].'</div>
-            <button class="add-to-cart">Agregar al carrito
-                <i class="fas fa-shopping-cart"></i>
-            </button>
-        </div>
-    </div>';
+                if(!empty($productos)){
+                    foreach($productos as $producto){
+                        echo '<div id="extra-margin" class="card">
+                        <img class="card-image" src="./gestion'.$producto['imagen'].'" alt="Product Image">
+                        <div class="card-content">
+                            <div class="product-name">'.$producto['nombre'].'</div>
+                            <div class="product-price-tag">Precio</div>
+                            <div class="product-price">$'.$producto['precio'].'</div>
+                            <form method="post" action="/carrito-compra/carrito.php">
+                                <input type="hidden" name="product_name" value="'.$producto['nombre'].'">
+                                <button class="add-to-cart" name="agregar" type="submit">Agregar al carrito
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>';
+                    }
+                }else{
+                    echo"No hay productos para mostrar en este momento";
                 }
                 
             ?>

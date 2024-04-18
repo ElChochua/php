@@ -24,7 +24,7 @@ header {
     border: 1px solid #ccc; /* Borde */
     border-radius: 5px; /* Borde redondeado */
   }
-  
+
   .search-container button {
     padding: 10px; /* Espacio interior */
     width: 2px;
@@ -417,7 +417,18 @@ a {
     margin-top: 5px; /* Espacio entre el nombre de la fruta y el precio */
     color: #010101;
   }
-  
+  .actualizar-Btn{
+    background-color: #b60000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    height: auto;
+    width: auto;
+    cursor: pointer;
+    margin-left: auto;
+    font-size: 14px;
+  }
   .modify-button {
     background-color: #b60000;
     color: white;
@@ -430,4 +441,19 @@ a {
     margin-left: auto;
     font-size: 14px;
   }
-  
+  .input-cantidad{
+    height: 10px;
+    width: 10px;
+}
+form{
+    background-color: #b60000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    height: auto;
+    width: auto;
+    cursor: pointer;
+    margin-left: auto;
+    font-size: 14px;
+}
