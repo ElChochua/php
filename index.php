@@ -55,7 +55,7 @@ session_start();
         <div class="right-side">
             <div class="login-card">
                 <div class="form-container">
-                    <form id="formulario" action="./carrito-compra/login.php" method="post">
+                    <form id="formulario" action="/carrito-compra/funciones/login.php" method="post">
                         <div class="options-login">
                             <a class="bypass" href="#"><u>In</u>iciar sesión</a>
                             <a

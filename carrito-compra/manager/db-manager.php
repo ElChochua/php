@@ -86,6 +86,7 @@ function imprimirProductos($conn){
         $productos = array();
         while($fila=$resultado->fetch_assoc()){
             $producto = array(
+                "id" => $fila['Id'],
                 "nombre" => $fila['Nombre'],
                 "precio" => $fila['Precio'],
                 "stock" => $fila['Stock'],
@@ -100,11 +101,12 @@ function imprimirProductos($conn){
 }
 function getProduct(mysqli $conn, $nombre){
     if(isset($nombre)){
-    $query = "SELECT * FROM productos WHERE Nombre='{$nombre}'";
+    $query = "SELECT * FROM productos WHERE Id='{$nombre}'";
     $resultado = $conn->query($query);
     if($resultado->num_rows>0){
         if($fila=$resultado->fetch_assoc()){
         $producto = array(
+            "id" => $fila['Id'],
             "nombre" => $fila['Nombre'],
             "precio" => $fila['Precio'],
             "stock" => $fila['Stock'],
@@ -114,8 +116,6 @@ function getProduct(mysqli $conn, $nombre){
         }
         return $producto;
     }
-    $conn->close();
-
     }
 }
 function getStock($conn, $productos){

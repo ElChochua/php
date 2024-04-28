@@ -114,7 +114,7 @@ if (!isset($_SESSION['username'])) {
                             <div class="product-price-tag">Precio</div>
                             <div class="product-price">$'.$producto['precio'].'</div>
                             <form method="post" action="/carrito-compra/carrito.php">
-                                <input type="hidden" name="product_name" value="'.$producto['nombre'].'">
+                                <input type="hidden" name="product_id" value="'.$producto['id'].'">
                                 <button class="add-to-cart" name="agregar" type="submit">Agregar al carrito
                                     <i class="fas fa-shopping-cart"></i>
                                 </button>

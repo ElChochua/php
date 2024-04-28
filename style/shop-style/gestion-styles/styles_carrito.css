@@ -417,7 +417,9 @@ a {
     margin-top: 5px; /* Espacio entre el nombre de la fruta y el precio */
     color: #010101;
   }
-  
+  .total{
+    color :black;
+  }
   .modify-button {
     background-color: blue;
     color: white;

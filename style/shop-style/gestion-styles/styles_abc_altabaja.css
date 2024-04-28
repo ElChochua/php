@@ -418,7 +418,7 @@ a {
     color: #010101;
   }
   .actualizar-Btn{
-    background-color: #b60000;
+    background-color: blue;
     color: white;
     border: none;
     border-radius: 5px;
@@ -444,16 +444,4 @@ a {
   .input-cantidad{
     height: 10px;
     width: 10px;
-}
-form{
-    background-color: #b60000;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    height: auto;
-    width: auto;
-    cursor: pointer;
-    margin-left: auto;
-    font-size: 14px;
 }

@@ -9,10 +9,10 @@
     }
     
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $nombre_producto = $_POST['product_name'];
-        if(!in_array($nombre_producto,$_SESSION["carrito"])){
+        $producto_id = $_POST['product_id'];
+        if(!in_array($producto_id,$_SESSION["carrito"])){
             // Agregamos el nuevo producto al arreglo sin reiniciarlo
-        $_SESSION["carrito"][] = $nombre_producto;
+        $_SESSION["carrito"][] = $producto_id;
         $cantidad = 1;
 
         header("Location: /carrito-compra/Fruteria-Inicio.php");
@@ -33,7 +33,9 @@
     <title>Frutería Amlitos - Carrito</title>
     <link rel="shortcut icon" href="/assets/carrito-compra/logo-fruteria.png" type="images/x-png">
     <script src="https://kit.fontawesome.com/df00b7509d.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/style/shop-style/gestion-styles/styles_abc_altabaja.css">
+
+    <link rel="stylesheet" href="/style/shop-style/gestion-styles/styles_carrito.css">
+
     <script src="/scripts/carrito-compras/login-register/script_register.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.all.min.js"></script>
 </head>
@@ -89,16 +91,15 @@
         <div class="left-side">
             <div class="login-card">
                 <div class="form-container">
-                    <form id="formulario" method="post" action="/carrito-compra/actualizar-carrito.php">
+                <?php
+                            if(!empty($_SESSION["carrito"])){
+                                foreach($_SESSION["carrito"] as $item){
+                                    $producto = getProduct($conn, $item);          
+                echo '<form id="formulario" method="post" action="/carrito-compra/funciones/actualizar-carrito.php">
                         <div class="options-login">
                             <a>Carrito</a>
                             <img src="/carrito-compra/gestion/productos/" alt="">
                         </div>
-                        <?php
-                            if(!empty($_SESSION["carrito"])){
-                                foreach($_SESSION["carrito"] as $item){
-                                    $producto = getProduct($conn, $item);
-                                    echo '
                     <hr class="divisor-line">
                         <ul class="fruits-list">
                             <li class="fruit-item">
@@ -110,7 +111,7 @@
                                         <h3>Stock: '.$producto["stock"].'</h3>
                                     </div>
                                 </div>
-                                <input type="hidden" name="producto" value="'.$producto["nombre"].'">
+                                <input type="hidden" name="producto" value="'.$producto["id"].'">
                                 <button class="modify-button" type="submit">Quitar Producto</button>
                                 <input class="input-cantidad" type="number" name="cantidad'.$producto["nombre"].'" placeholder="cantidad">
                             </li>
@@ -118,13 +119,13 @@
                                 
                                 }
                             }else{
-                                echo "Parece que no has añadido nada al carrito";
+                                echo"<h3 class='total'>Parece que no has añadido nada al carrito</h3>";
                             }
                         ?><div class="pago-datos">
         <?php
             $total = 0;
-            echo "<h1>Total: {$total}</h1>";
-            echo "<input class='actualizar-Btn'type='submit' name='actualizar' value='Actualizar'>";
+            echo "<h1 class='total'>Total: {$total}</h1>";
+            echo "<input class='modify-button'type='submit' name='actualizar' value='Actualizar'>";
         ?>
 </div>
                     </form>
@@ -137,10 +138,12 @@
     </div>
 <div class="pago-datos">
         <?php
+        /*
             $total = 0;
             echo "<h1>Total: {$total}</h1>";
             echo "<input class='actualizar-Btn'type='submit' name='actualizar' value='Actualizar'>";
-        ?>
+        */
+            ?>
 </div>
 </div>
 <footer>

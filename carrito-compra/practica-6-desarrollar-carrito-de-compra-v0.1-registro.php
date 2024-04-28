@@ -1,5 +1,5 @@
 <?php
-include '/login-registro/db-manager.php';
+    include './manager/db-manager.php';
 session_start();
 ?>
 
@@ -46,7 +46,7 @@ session_start();
         <div class="left-side">
             <div class="login-card">
                 <div class="form-container">
-                    <form id="formulario" method="post" action="login-register.php">
+                    <form id="formulario" method="post" action="./funciones/login-register.php">
                         <div class="options-login">
                             <a href="../index.php"><u>In</u>iciar sesión</a>
                             <a class="bypass" onclick="mostrarRegistro()">Registrarme</a>
