@@ -4,7 +4,11 @@
     if(!isset($_SESSION['username'])){
         header("Location: /index.php");
     }
-?>
+    if(isset($_GET['producto'])){
+        $id = $_GET['producto'];
+        $producto  = getProduct($conn,$id);
+    }
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,25 +62,31 @@
         <div class="left-side">
             <div class="login-card">
                 <div class="form-container">
-                    <form id="formulario" action="agregar-producto.php" method="post" enctype="multipart/form-data">
+                    <?php
+                    echo'<form id="formulario" action="/carrito-compra/gestion/editar-producto.php" method="post" enctype="multipart/form-data">
                         <div class="options-login">
-                            <a>Nuevo Producto</a>
+                            <a>Modificar Producto</a>
                         </div>
-                        <input class="margin-aaa" type="text" id="nombre" name="nombre" placeholder="nombre"
+                        <input type="hidden" value="'.$producto["id"].'" name="id">
+                        <input type="hidden" name="imagen_prov"value="'.$producto["imagen"].'">
+                        <input class="margin-aaa" type="text" id="nombre" name="nombre" placeholder="nombre" value="'.$producto["nombre"].'"
                             required>
-                        <input class="margin-aaa" type="number" id="number" name="precio" placeholder="Precio"
+                        <input class="margin-aaa" type="number" id="number" name="precio" placeholder="Precio" value="'.$producto["precio"].'"
                             required>
-                        <input class="margin-aaa" type="number" id="number" name="stock" placeholder="Stock"
+                        <input class="margin-aaa" type="number" id="number" name="stock" placeholder="Stock" value="'.$producto["stock"].'"
                             required>
                             <a required style="font-size: 15px;">Foto del Producto </a>
-                        <input class="margin-aaa" type="file" id="foto" name="imagen" accept="image/*" required placeholder="Adjuntar fotografía"
-                            required>
+                        <input class="margin-aaa" type="file" id="foto" name="imagen" accept="image/*" placeholder="Adjuntar fotografía"
+                            >
+                        
 
 
                         <a id="reset-inputs" href="#" onclick="resetInputs()" class="reset-inputs">Reiniciar campos</a>
-                        <button id="register-button" type="submit">Agregar</button>
+                        <button id="register-button" type="submit">Modificar</button>
                         <div class="another-options">
                     </form>
+                    ';
+                ?>
                 </div>
             </div>
         </div>

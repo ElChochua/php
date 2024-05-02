@@ -4,6 +4,8 @@
     if(!isset($_SESSION['username'])){
         header("Location: /index.php");
     }
+    $productos = imprimirProductos($conn);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,34 +66,39 @@
         <div class="left-side">
             <div class="login-card">
                 <div class="form-container">
-                    <form id="formulario">
                         <div class="options-login">
                             <a>Alta o Baja de producto</a>
                         </div>
                             <?php 
-                                $productos = imprimirProductos($conn);
+                            if(!empty($productos)){
                                 foreach($productos as $producto){
-                                    $textoBoton = ($producto["estado"] == 1) ? "Desactivar" : "Activar";
-                                    $valorBoton = ($producto["estado"] == 1) ? 0 : 1;
-                                    echo '
-                                    <hr class="divisor-line">
-                                    <ul class="fruits-list">
-                                        <li class="fruit-item">
-                                            <div class="fruit-info">
-                                                <img src="'.$producto["imagen"].'" alt="Product Image">
-                                                <div class="details">
-                                                    <h3>'.$producto["nombre"].'</h3>
-                                                    <p class="price">Precio: $'.$producto["precio"].'</p>
-                                                </div>
-                                            </div>
-                                            <form>
-                                            <input type="hidden" name="producto" value="'.$producto["nombre"].'">
-                                            <input type="hidden" name="estado" value="'.$valorBoton.'">
-                                            <button class="modify-button" type="submit">'.$textoBoton.'</button>
-                                            </form>
-                                        </li>
-                                    ';
+                echo '<form id="formulario" method="post" action="/carrito-compra/funciones/baja_alta.php">
+                        <div class="options-login">
+                            <img src="/carrito-compra/gestion/productos/" alt="">
+                        </div>
+                    <hr class="divisor-line">
+                        <ul class="fruits-list">
+                            <li class="fruit-item">
+                                <div class="fruit-info">
+                                    <img src="../gestion'.$producto["imagen"].'" alt="Product Image">
+                                    <div class="details">
+                                        <h3>'.$producto["nombre"].'</h3>
+                                        <p class="price">Precio: $'.$producto["precio"].'</p>
+                                        <h3>Stock: '.$producto["stock"].'</h3>
+                                    </div>
+                                </div>
+                                ';
+                                if($producto["estado"] == 1){
+                                    echo'<button class="modify-button" name="producto" type="submit" value="'.$producto["id"].'">Desactivar</button>';
+                                }else{
+                                    echo'<button class="modify-button" name="producto" type="submit" value="'.$producto["id"].'">Activar</button>';
                                 }
+                            echo'</li>';
+                                
+                                }
+                            }else{
+                                echo"<h3 class='total'>No hay productos agregados</h3>";
+                            }
                             ?>
                             <!-- Agrega más elementos <li> para otras frutas si es necesario -->
                         </ul>

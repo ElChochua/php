@@ -1,0 +1,45 @@
+$productos = imprimirProductos($conn);
+    
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $producto_id = $_POST['product_id'];
+        $cantidad = 1;
+        $nombre_producto = '';
+        $precio_producto = '';
+        $imagen_producto='';
+        $stock_producto='';
+        foreach($productos as $producto){
+            if($producto["id"] === $producto_id){
+                $nombre_producto = $producto["nombre"];
+                $precio_producto = $producto["precio"];
+                $imagen_producto = $producto["imagen"];
+                $stock_producto = $producto["stock"];
+                break;
+            }
+        }
+        if(isset($_SESSION["carrito"][$producto_id])){
+            $_SESSION["carrito"][$producto_id]["cantidad"] += $cantidad;
+        }else{
+            $_SESSION["carrito"][$producto_id]=[
+                "id" => $producto_id,
+                "nombre" => $nombre_producto,
+                "precio" =>  $precio_producto,
+                "imagen" => $imagen_producto,
+                "stock" => $stock_producto,
+                "cantidad" => $cantidad
+            ];
+        }
+
+        /*
+        if(!in_array($producto_id,$_SESSION["carrito"])){
+            // Agregamos el nuevo producto al arreglo sin reiniciarlo
+        $_SESSION["carrito"][] = $producto_id;
+        $cantidad = 1;
+
+        header("Location: /carrito-compra/Fruteria-Inicio.php");
+        }else{
+            alert("Elemento en el carrito");
+            header("Location: /carrito-compra/Fruteria-Inicio.php");
+        }
+        */
+    }
+    print_r($_SESSION["carrito"]);

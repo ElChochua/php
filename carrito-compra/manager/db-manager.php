@@ -99,6 +99,39 @@ function imprimirProductos($conn){
     }
     $conn->close();
 }
+function imprimirProductosActivos($conn){
+    $query = "SELECT * FROM productos WHERE Estado='1' AND Stock>0";
+    $resultado = $conn->query($query);
+    if($resultado->num_rows>0){
+        $productos = array();
+        while($fila=$resultado->fetch_assoc()){
+            $producto = array(
+                "id" => $fila['Id'],
+                "nombre" => $fila['Nombre'],
+                "precio" => $fila['Precio'],
+                "stock" => $fila['Stock'],
+                "imagen" => $fila['Imagen'],
+                "estado" => $fila['Estado']
+            );
+            $productos[] = $producto;
+        }
+        return $productos;
+    }
+    $conn->close();
+}
+function getStatus($productoId, $conn){
+    if(isset($productoId)){
+        $query = "SELECT Estado FROM Productos Where Id='{$productoId}'";
+        $resultado = $conn->query($query);
+        if($resultado->num_rows>0){
+            if($fila=$resultado->fetch_assoc()){
+                $estado = $fila;
+                return $estado;
+            }
+        }
+        $conn->close();
+    }
+}
 function getProduct(mysqli $conn, $nombre){
     if(isset($nombre)){
     $query = "SELECT * FROM productos WHERE Id='{$nombre}'";
@@ -136,7 +169,7 @@ function getStock($conn, $productos){
     }
 }
 function modificarUsuario($datos,$conn){
- // Escapar correctamente los valores para prevenir la inyección SQL
+
  $nombre = mysqli_real_escape_string($conn, $datos["nombre"]);
  $edad = mysqli_real_escape_string($conn, $datos["edad"]);
  $email = mysqli_real_escape_string($conn, $datos["email"]);
@@ -157,7 +190,20 @@ function modificarUsuario($datos,$conn){
  }
 }
 function modificarProducto($datos,$connection){
-    
+    $id = mysqli_real_escape_string($connection,$datos["id"]);
+    $nombre = mysqli_real_escape_string($connection,$datos["nombre"]);
+    $precio = mysqli_real_escape_string($connection,$datos["precio"]);
+    $stock = mysqli_real_escape_string($connection,$datos["stock"]);
+    $imagen = mysqli_real_escape_string($connection,$datos["imagen"]);
+    $query = "UPDATE productos
+              SET Nombre='$nombre',Precio='$precio',Stock='$stock',Imagen='$imagen'
+              Where Id='$id'";
+    if($connection->query($query) === TRUE){
+        alert("Producto Modificado con exito");
+    }else{
+        alert("Error al modificar");
+    }
+    $connection->close();
 }
 /*
 $query = "SELECT * FROM usuarios";

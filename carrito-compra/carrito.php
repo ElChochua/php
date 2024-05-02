@@ -91,13 +91,16 @@
         <div class="left-side">
             <div class="login-card">
                 <div class="form-container">
+                <a>Carrito</a>
+
                 <?php
+                            $total = 0;
                             if(!empty($_SESSION["carrito"])){
                                 foreach($_SESSION["carrito"] as $item){
-                                    $producto = getProduct($conn, $item);          
+                                    $producto = getProduct($conn, $item);     
+                                    $total += $producto["precio"];
                 echo '<form id="formulario" method="post" action="/carrito-compra/funciones/actualizar-carrito.php">
                         <div class="options-login">
-                            <a>Carrito</a>
                             <img src="/carrito-compra/gestion/productos/" alt="">
                         </div>
                     <hr class="divisor-line">
@@ -111,8 +114,8 @@
                                         <h3>Stock: '.$producto["stock"].'</h3>
                                     </div>
                                 </div>
-                                <input type="hidden" name="producto" value="'.$producto["id"].'">
-                                <button class="modify-button" type="submit">Quitar Producto</button>
+                                <input type="hidden" name="item" value="'.$producto["id"].'">
+                                <button class="modify-button" name="producto" type="submit" value='.$producto["id"].'>Quitar Producto</button>
                                 <input class="input-cantidad" type="number" name="cantidad'.$producto["nombre"].'" placeholder="cantidad">
                             </li>
                                 ';
@@ -123,9 +126,8 @@
                             }
                         ?><div class="pago-datos">
         <?php
-            $total = 0;
-            echo "<h1 class='total'>Total: {$total}</h1>";
-            echo "<input class='modify-button'type='submit' name='actualizar' value='Actualizar'>";
+            echo "<h1 class='total'>Total: $".$total."</h1>";
+            echo "<button class='modify-button'>Actualizar</button>";
         ?>
 </div>
                     </form>

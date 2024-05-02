@@ -104,7 +104,7 @@ if (!isset($_SESSION['username'])) {
             </div>-->
 
             <?php
-                $productos = imprimirProductos($conn);
+                $productos = imprimirProductosActivos($conn);
                 if(!empty($productos)){
                     foreach($productos as $producto){
                         echo '<div id="extra-margin" class="card">
@@ -113,8 +113,10 @@ if (!isset($_SESSION['username'])) {
                             <div class="product-name">'.$producto['nombre'].'</div>
                             <div class="product-price-tag">Precio</div>
                             <div class="product-price">$'.$producto['precio'].'</div>
+                            <span >Disponibles: '.$producto["stock"].'</span>
                             <form method="post" action="/carrito-compra/carrito.php">
                                 <input type="hidden" name="product_id" value="'.$producto['id'].'">
+                                <input type="hidden" name="cantidad" value="1">
                                 <button class="add-to-cart" name="agregar" type="submit">Agregar al carrito
                                     <i class="fas fa-shopping-cart"></i>
                                 </button>

@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    include "../manager/db-manager.php";
+    if(!isset($_SESSION['username'])){
+        header("Location: /index.php");
+    }
+    $productos = imprimirProductos($conn);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,39 +65,33 @@
         <div class="left-side">
             <div class="login-card">
                 <div class="form-container">
-                    <form id="formulario" action="agregar-producto.php">
+                <?php
+                if(!empty($productos)){
+                                foreach($productos as $producto){
+                echo '<form id="formulario" method="get" action="/carrito-compra/gestion/modificar-pantalla.php">
                         <div class="options-login">
-                            <a>Modificar producto</a>
+                            <img src="/carrito-compra/gestion/productos/" alt="">
                         </div>
-                        <hr class="divisor-line">
+                    <hr class="divisor-line">
                         <ul class="fruits-list">
                             <li class="fruit-item">
                                 <div class="fruit-info">
-                                    <img src="fruta1.jpg" alt="Fruta 1">
+                                    <img src="../gestion'.$producto["imagen"].'" alt="Product Image">
                                     <div class="details">
-                                        <h3>Manzana</h3>
-                                        <p class="price">Precio: $1.99</p>
+                                        <h3>'.$producto["nombre"].'</h3>
+                                        <p class="price">Precio: $'.$producto["precio"].'</p>
+                                        <h3>Stock: '.$producto["stock"].'</h3>
                                     </div>
                                 </div>
-                                <button class="modify-button">Modificar</button>
+                                <button class="modify-button" name="producto" type="submit" value='.$producto["id"].'>Modificar</button>
                             </li>
-                            <li class="fruit-item">
-                                <div class="fruit-info">
-                                    <img src="fruta2.jpg" alt="Fruta 2">
-                                    <div class="details">
-                                        <h3>Naranja</h3>
-                                        <p class="price">Precio: $2.49</p>
-                                    </div>
-                                </div>
-                                <button class="modify-button">Modificar</button>
-                            </li>
-                            <!-- Agrega más elementos <li> para otras frutas si es necesario -->
-                        </ul>
-                        <hr class="divisor-line">
-                        <div class="another-options">
-                            <!-- Otras opciones aquí -->
-                        </div>
-                    </form>
+                                ';
+                                
+                                }
+                            }else{
+                                echo"<h3 class='total'>No hay productos agregados</h3>";
+                            }
+                        ?><div class="pago-datos">
                 </div>
             </div>
         </div>
